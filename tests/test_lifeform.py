@@ -25,15 +25,21 @@ def test_lifeform_subtracts_calorie_usage_rate_from_calorie_level_on_update():
     assert lifeform.calorie_level == before_level - lifeform.calorie_usage_rate
 
 
-def test_lifeform_gains_calories_on_get_calories():
+def test_lifeform_cannot_go_below_zero_calories():
+    lifeform = Lifeform(calorie_level=1, calorie_usage_rate=2.0)
+    lifeform.update()
+    assert lifeform.calorie_level == 0
+
+
+def test_lifeform_gains_calories_on_eat_calories():
     lifeform = Lifeform()
     before_level = lifeform.calorie_level
-    lifeform.get_calories(10)
+    lifeform.eat_calories(10)
     assert lifeform.calorie_level == before_level + 10
 
 
-def test_lifeform_get_calories_will_not_gain_more_than_max_calorie_level():
+def test_lifeform_eat_calories_will_not_gain_more_than_max_calorie_level():
     lifeform = Lifeform(calorie_level=140, max_calorie_level=150)
     more_calories_than_needed = 20
-    lifeform.get_calories(more_calories_than_needed)
+    lifeform.eat_calories(more_calories_than_needed)
     assert lifeform.calorie_level == lifeform.max_calorie_level
