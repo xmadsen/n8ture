@@ -10,12 +10,12 @@ def test_lifeform_inits_with_calorie_level():
 
 def test_lifeform_inits_with_location_tuple():
     lifeform = Lifeform()
-    assert isinstance(lifeform.location, tuple)
+    assert hasattr(lifeform, "location")
 
 
 def test_lifeform_inits_with_calorie_usage_rate():
     lifeform = Lifeform()
-    assert isinstance(lifeform.calorie_usage_rate, float)
+    assert hasattr(lifeform, "calorie_usage_rate")
 
 
 def test_lifeform_subtracts_calorie_usage_rate_from_calorie_level_on_update():

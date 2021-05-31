@@ -1,5 +1,11 @@
-class Lifeform():
-    def __init__(self, location: tuple = (0.0, 0.0), calorie_level: float = 100.0, max_calorie_level: float = 120.0, calorie_usage_rate: float = 1.0):
+class Lifeform:
+    def __init__(
+        self,
+        location: tuple = (0.0, 0.0),
+        calorie_level: float = 100.0,
+        max_calorie_level: float = 120.0,
+        calorie_usage_rate: float = 1.0,
+    ):
         self.location = location
         self.calorie_level = float(calorie_level)
         self.calorie_usage_rate = calorie_usage_rate
