@@ -5,7 +5,7 @@ class Lifeform:
         calorie_level: float = 100.0,
         max_calorie_level: float = 120.0,
         calorie_usage_rate: float = 1.0,
-        eaten_calorie_value: float = 100.0
+        eaten_calorie_value: float = 100.0,
     ):
         self.location = location
         self.calorie_level = float(calorie_level)
@@ -13,8 +13,11 @@ class Lifeform:
         self.max_calorie_level = max_calorie_level
         self.eaten_calorie_value = eaten_calorie_value
 
+        self.age = 0
+
     def update(self):
         self.use_calories(self.calorie_usage_rate)
+        self.age += 1
 
     def use_calories(self, calories: float):
         if self.calorie_level - calories < 0:
